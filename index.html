@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Appointment Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="booking-container">
+        <header>
+            <a href="#" class="back-link"><i class="fas fa-arrow-left"></i> Back to Home</a>
+            <h1>Book Your Appointment</h1>
+            <div class="progress-steps">
+                <div class="step active" data-step="1">
+                    <span>1</span>
+                    <p>Specialty</p>
+                </div>
+                <div class="step" data-step="2">
+                    <span>2</span>
+                    <p>Doctor & Time</p>
+                </div>
+                <div class="step" data-step="3">
+                    <span>3</span>
+                    <p>Details</p>
+                </div>
+                <div class="step" data-step="4">
+                    <span>4</span>
+                    <p>Patient Info</p>
+                </div>
+                <div class="step" data-step="5">
+                    <span>5</span>
+                    <p>Confirm</p>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Step 1: Specialty Selection -->
+            <section class="booking-step active" id="step1">
+                <h2>Select a Medical Specialty</h2>
+                
+                <!-- Enhanced Search Box -->
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search specialties..." id="specialtySearch">
+                    <button class="clear-search" aria-label="Clear search">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <!-- Enhanced Specialty Grid -->
+                <div class="specialty-grid">
+                    <div class="specialty-card" data-specialty="cardiology">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Cardiology</h3>
+                            <p>Heart and cardiovascular system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="neurology">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Neurology</h3>
+                            <p>Brain and nervous system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="pediatrics">
+                        <div class="card-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pediatrics</h3>
+                            <p>Medical care for infants and children</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="dermatology">
+                        <div class="card-icon">
+                            <i class="fas fa-allergies"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Dermatology</h3>
+                            <p>Skin, hair and nail health</p>
+                            <div class="popular-tag">Trending</div>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="internal-medicine">
+                        <div class="card-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Internal Medicine</h3>
+                            <p>Diagnosis of adult diseases</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="ophthalmology">
+                        <div class="card-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Ophthalmology</h3>
+                            <p>Eye and vision care</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="orthopedics">
+                        <div class="card-icon">
+                            <i class="fas fa-bone"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Orthopedics</h3>
+                            <p>Musculoskeletal system</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="psychiatry">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Psychiatry</h3>
+                            <p>Mental health treatments</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="family-medicine">
+                        <div class="card-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Family Medicine</h3>
+                            <p>Primary care for all ages</p>
+                        </div>
+                    </div>
+                    
+                    <div class="specialty-card" data-specialty="endocrinology">
+                        <div class="card-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="card-content">
+                            <h3>Endocrinology</h3>
+                            <p>Hormones and metabolism</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn-next" disabled>Continue</button>
+                </div>
+            </section>
+
+            <!-- Step 2: Doctor & Time Selection -->
+            <section class="booking-step" id="step2">
+                <h2>Select Doctor and Appointment Time</h2>
+                <div class="doctor-selection">
+                    <div class="doctor-card">
+                        <img src="http://localhost:3000/api/placeholder/80/80" alt="Doctor Sara Johnson">
+                        <div class="doctor-info">
+                            <h3>Dr. Sarah Johnson</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.9 (156 reviews)</span>
+                            </div>
+                            <p>Cardiologist</p>
+                        </div>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="/api/placeholder/80/80" alt="Dr. Harold Dizon">
+                        <div class="doctor-info">
+                            <h3>Dr. Harold Dizon</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.8 (124 reviews)</span>
+                            </div>
+                            <p>Cardiologist</p>
+                        </div>
+                    </div>
+                    <div class="doctor-card">
+                        <img src="/api/placeholder/80/80" alt="Dr. Jovan Nadala">
+                        <div class="doctor-info">
+                            <h3>Dr. Jovan Nadala</h3>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <span>4.7 (98 reviews)</span>
+                            </div>
+                            <p>Cardiologist</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="date-selection">
+                    <h3>Select Date</h3>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button class="nav-btn prev-month">&lt;</button>
+                            <h4 class="month-year">May 2025</h4>
+                            <button class="nav-btn next-month">&gt;</button>
+                        </div>
+                        <div class="weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="days-grid"></div>
+                    </div>
+                    
+                    <h3>Available Times</h3>
+                    <div class="time-slots">
+                        <button class="time-slot">9:00 AM</button>
+                        <button class="time-slot">9:30 AM</button>
+                        <button class="time-slot">10:00 AM</button>
+                        <button class="time-slot">10:30 AM</button>
+                        <button class="time-slot">11:00 AM</button>
+                        <button class="time-slot">11:30 AM</button>
+                        <button class="time-slot">1:00 PM</button>
+                        <button class="time-slot">1:30 PM</button>
+                        <button class="time-slot">2:00 PM</button>
+                        <button class="time-slot">2:30 PM</button>
+                        <button class="time-slot">3:00 PM</button>
+                        <button class="time-slot">3:30 PM</button>
+                        <button class="time-slot">4:00 PM</button>
+                        <button class="time-slot">4:30 PM</button>
+                        <button class="time-slot">5:00 PM</button>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn-back">Back</button>
+                    <button class="btn-next">Continue</button>
+                </div>
+            </section>
+
+            <!-- Step 3: Appointment Details -->
+            <section class="booking-step" id="step3">
+                <h2>Appointment Details</h2>
+                
+                <div class="appointment-summary-card">
+                    <div class="doctor-time-info">
+                        <h3>Dr. Sarah Johnson - Cardiologist</h3>
+                        <p>Thursday, April 25, 2025 at 11:00 AM</p>
+                    </div>
+                    <a href="#" class="change-link">Change</a>
+                </div>
+                
+                <div class="appointment-field">
+                    <label for="visit-reason">Reason for Visit</label>
+                    <textarea id="visit-reason" placeholder="Please describe your symptoms or reason for this appointment..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="appointment-field">
+                            <label for="insurance-provider">Insurance Provider</label>
+                            <select id="insurance-provider">
+                                <option value="" selected disabled>Select provider</option>
+                                <option value="blue-cross">Blue Cross Blue Shield</option>
+                                <option value="aetna">Aetna</option>
+                                <option value="cigna">Cigna</option>
+                                <option value="united">UnitedHealthcare</option>
+                                <option value="medicare">Medicare</option>
+                                <option value="medicaid">Medicaid</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="appointment-field">
+                            <label for="policy-number">Policy Number</label>
+                            <input type="text" id="policy-number" placeholder="Enter your policy number">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="appointment-field">
+                    <label>Is this your first visit?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="first-visit-yes" name="first-visit" value="yes">
+                            <label for="first-visit-yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="first-visit-no" name="first-visit" value="no">
+                            <label for="first-visit-no">No</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="appointment-field">
+                    <label for="additional-notes">Additional Notes (Optional)</label>
+                    <textarea id="additional-notes" placeholder="Any additional information you'd like to share with the doctor..."></textarea>
+                </div>
+                
+                <div class="appointment-field">
+                    <label>Upload Documents (Optional)</label>
+                    <div class="file-upload" id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop files here, or <span id="browse-text">click to browse</span></p>
+                        <div class="supported-formats">Supported formats: PDF, JPG, PNG (Max 10MB)</div>
+                        <input type="file" id="file-input" multiple accept=".pdf,.jpg,.jpeg,.png" style="display:none;">
+                    </div>
+                    <div id="file-list"></div>
+                    <div id="progress-container">
+                        <div id="progress-bar"></div>
+                    </div>
+                    <div id="upload-status"></div> 
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn-back">Previous</button>
+                    <button class="btn-next">Continue</button>
+                </div>
+            </section>
+
+            <!-- Step 4: Patient Information -->
+            <section class="booking-step" id="step4">
+                <h2>Patient Information</h2>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="first-name">First Name</label>
+                            <input type="text" id="first-name" placeholder="Enter first name">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="last-name">Last Name</label>
+                            <input type="text" id="last-name" placeholder="Enter last name">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="date-of-birth">Date of Birth</label>
+                            <input type="date" id="date-of-birth" placeholder="MM/DD/YYYY">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="gender">Gender</label>
+                            <select id="gender">
+                                <option value="" selected disabled>Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="non-binary">Non-binary</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter email address">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" placeholder="Street address">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="state">State</label>
+                            <input type="text" id="state" placeholder="State">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="zip">Zip Code</label>
+                            <input type="text" id="zip" placeholder="Zip code">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="medical-history">
+                    <h3>Medical History</h3>
+                    <p>Select all that apply:</p>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="high-blood-pressure">
+                            <label for="high-blood-pressure">High Blood Pressure</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="diabetes">
+                            <label for="diabetes">Diabetes</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="heart-disease">
+                            <label for="heart-disease">Heart Disease</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="asthma">
+                            <label for="asthma">Asthma</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="cancer">
+                            <label for="cancer">Cancer</label>
+                        </div>
+                        <div class="checkbox-option">
+                            <input type="checkbox" id="allergies">
+                            <label for="allergies">Allergies</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="current-medications">Current Medications</label>
+                    <textarea id="current-medications" placeholder="List any medications you are currently taking..."></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="emergency-contact">Emergency Contact Name</label>
+                            <input type="text" id="emergency-contact" placeholder="Full name">
+                        </div>
+                    </div>
+                    <div class="form-column">
+                        <div class="form-field">
+                            <label for="emergency-relationship">Relationship</label>
+                            <input type="text" id="emergency-relationship" placeholder="Relationship">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <label for="emergency-phone">Emergency Contact Phone</label>
+                    <input type="tel" id="emergency-phone" placeholder="Phone number">
+                </div>
+                
+                <div class="save-info-option">
+                    <input type="checkbox" id="save-info" checked>
+                    <label for="save-info">Save this information for future appointments</label>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn-back">Previous</button>
+                    <button class="btn-next">Continue</button>
+                </div>
+            </section>
+
+            <!-- Step 5: Confirmation -->
+            <section class="booking-step" id="step5">
+                <h2>Review & Confirm</h2>
+                
+                <div class="confirmation-section">
+                    <h3>Appointment Summary</h3>
+                    <div class="info-row">
+                        <div class="info-label">Doctor:</div>
+                        <div class="info-value" id="confirm-doctor"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Specialty:</div>
+                        <div class="info-value" id="confirm-specialty"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Date & Time:</div>
+                        <div class="info-value" id="confirm-datetime"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Reason for Visit:</div>
+                        <div class="info-value" id="confirm-reason"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Insurance Provider:</div>
+                        <div class="info-value" id="confirm-insurance-provider"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Policy Number:</div>
+                        <div class="info-value" id="confirm-policy-number"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">First Visit:</div>
+                        <div class="info-value" id="confirm-first-visit"></div>
+                    </div>
+                    <div class="info-row" id="uploaded-files-row">
+                        <div class="info-label">Uploaded Files:</div>
+                        <div class="info-value" id="confirm-uploaded-files"></div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-section">
+                    <h3>Patient Information</h3>
+                    <div class="info-row">
+                        <div class="info-label">Name:</div>
+                        <div class="info-value" id="confirm-patient-name"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Date of Birth:</div>
+                        <div class="info-value" id="confirm-dob"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Gender:</div>
+                        <div class="info-value" id="confirm-gender"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Email:</div>
+                        <div class="info-value" id="confirm-email"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Phone:</div>
+                        <div class="info-value" id="confirm-phone"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Address:</div>
+                        <div class="info-value" id="confirm-address"></div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-section">
+                    <h3>Medical History</h3>
+                    <div class="info-row">
+                        <div class="info-label">Conditions:</div>
+                        <div class="info-value" id="confirm-conditions"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Current Medications:</div>
+                        <div class="info-value" id="confirm-medications"></div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-section">
+                    <h3>Emergency Contact</h3>
+                    <div class="info-row">
+                        <div class="info-label">Name:</div>
+                        <div class="info-value" id="confirm-emergency-name"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Relationship:</div>
+                        <div class="info-value" id="confirm-emergency-relationship"></div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-label">Phone:</div>
+                        <div class="info-value" id="confirm-emergency-phone"></div>
+                    </div>
+                </div>
+                
+                <div class="important-notes">
+                    <h3>Important Notes</h3>
+                    <div class="note-item">
+                        <i class="fas fa-circle-info"></i>
+                        <div>Please arrive 15 minutes before your scheduled appointment time.</div>
+                    </div>
+                    <div class="note-item">
+                        <i class="fas fa-circle-info"></i>
+                        <div>Bring your insurance card and a valid photo ID.</div>
+                    </div>
+                    <div class="note-item">
+                        <i class="fas fa-circle-info"></i>
+                        <div>If you need to cancel or reschedule, please do so at least 24 hours in advance.</div>
+                    </div>
+                </div>
+                
+                <div class="confirmation-checkbox">
+                    <input type="checkbox" id="confirm-info">
+                    <label for="confirm-info">I confirm that all the information provided is accurate and complete.</label>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button class="btn-back">Previous</button>
+                    <button class="btn-confirm">Confirm Appointment</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
